@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vialactea"
+version = "0.1.0"
+description = "Milky Way midplane viewer"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "David Nidever"}]
+dependencies = [
+    "numpy>=1.23",
+    "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.30", "pandas>=2"]
+test = ["pytest>=7"]
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.package-data]
+vialactea = ["data/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
